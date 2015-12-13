@@ -5,9 +5,9 @@
         .module("RealmStatus")
         .controller("HomeCtrl", HomeCtrl);
 
-    HomeCtrl.$inject = ['RealmService', '$sce'];
+    HomeCtrl.$inject = ['RealmService'];
 
-    function HomeCtrl(RealmService, $sce) {
+    function HomeCtrl(RealmService) {
         var vm = this;
         vm.realms;
 
@@ -22,14 +22,6 @@
                 // Assign realms to the data from the webservice
                 vm.realms = data.realms;
             });
-
-        vm.connectedRealms = function (realm) {
-            for (var i = 0; i < realm.connected_realms.length; i++) {
-                console.log(realm.connected_realms[i]);
-            }
-
-            return $sce.trustAsHtml(realm.connected_realms.toString());
-        };
 
     };
 
