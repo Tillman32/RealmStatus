@@ -1,0 +1,39 @@
+﻿body {
+    margin-top: 25px;
+    font-family: Verdana;
+    background-color: #212121;
+}
+
+.table {
+    box-shadow: rgba(0, 0, 0, 0.4) -5px 10px;
+}
+
+.table th {
+    font-family: Arial;
+    font-size: 16px;
+    cursor: pointer;
+}
+
+.status-true {
+    color: green;
+}
+
+.status-false {
+    color: red;
+}
+
+.pop-low {
+    color: green;
+}
+
+.pop-medium {
+    color: yellow;
+}
+
+.pop-high {
+    color: orange;
+}
+
+.pop-full {
+    color: red;
+}
