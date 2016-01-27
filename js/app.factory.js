@@ -8,16 +8,19 @@
     RealmService.$inject = ['$http'];
 
     function RealmService($http) {
-        var endpoint = "https://us.api.battle.net/wow/realm/status?locale=en_US&apikey=pxhga3cypr56rfw34b2ckrhv8y9pstet&jsonp=JSON_CALLBACK";
-        var locale = "en_US";
-        var apiKey = "pxhga3cypr56rfw34b2ckrhv8y9pstet"
+        // Should really be in config somewhere outside factory
+        var endpoint = "https://us.api.battle.net/wow/realm/status?";
+        var locale = "locale=en_US";
+        var apiKey = "&apikey=YOUR KEY HERE";
+        var jsonp = "&jsonp=JSON_CALLBACK";
 
         return {
-            getRealms: getRealms
+            // Public API's
+            getRealms: _getRealms
         }
 
-        function getRealms() {
-            return $http.jsonp(endpoint)
+        function _getRealms() {
+            return $http.jsonp(endpoint + locale + apiKey + jsonp)
                 .then(getRealmsComplete)
                 .catch(getRealmsFailed);
 
